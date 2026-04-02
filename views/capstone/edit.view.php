@@ -8,11 +8,12 @@
 
         <!-- Header -->
         <h1 class="text-2xl md:text-3xl font-bold mb-6">
-            Upload Capstone Project
+            Edit Capstone Project
         </h1>
 
-        <form action="/capstone/create" method="POST" enctype="multipart/form-data" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
+        <form action="/capstone/edit" method="POST" enctype="multipart/form-data" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <input type="hidden" name="_method" value="PATCH">
+            <input type="hidden" name="id" value="<?= $capstone['id'] ?>">
             <!-- LEFT SIDE -->
             <div class="space-y-4">
 
@@ -20,7 +21,7 @@
                 <div>
                     <label class="block text-sm mb-1 text-gray-700">Project Title</label>
                     <input type="text" name="title"
-                        value="<?= $_POST["title"] ?? "" ?>"
+                        value="<?= $capstone["title"] ?? "" ?>"
                         class="w-full px-4 py-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
                     <small class="text-red-400 text-sm"><?= $errors['title'] ?? '' ?></small>
                 </div>
@@ -29,7 +30,7 @@
                 <div>
                     <label class="block text-sm mb-1 text-gray-700">Author</label>
                     <input type="text" name="author"
-                        value="<?= $_POST["author"] ?? "" ?>"
+                        value="<?= $capstone["author"] ?? "" ?>"
                         class="w-full px-4 py-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <small class="text-red-400 text-sm"><?= $errors['author'] ?? '' ?></small>
                 </div>
@@ -37,7 +38,7 @@
                 <div>
                     <label class="block text-sm mb-1 text-gray-700">Adviser</label>
                     <input type="text" name="adviser"
-                        value="<?= $_POST["adviser"] ?? "" ?>"
+                        value="<?= $capstone["adviser"] ?? "" ?>"
                         class="w-full px-4 py-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <small class="text-red-400 text-sm"><?= $errors['adviser'] ?? '' ?></small>
                 </div>
@@ -46,7 +47,7 @@
                 <div>
                     <label class="block text-sm mb-1 text-gray-700">Year Published</label>
                     <input type="number" name="year_published"
-                        value="<?= $_POST["year_published"] ?? "" ?>"
+                        value="<?= $capstone["year_published"] ?? "" ?>"
                         class="w-full px-4 py-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <small class="text-red-400 text-sm"><?= $errors['year_published'] ?? '' ?></small>
                 </div>
@@ -60,11 +61,11 @@
                         class="w-full px-4 py-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
 
                         <option value="">Select a category</option>
-                        <option value="Information Technology" <?= ($_POST["category"] ?? "") === "Information Technology" ? "selected" : "" ?>>Information Technology</option>
-                        <option value="Engineering" <?= ($_POST["category"] ?? "") === "Engineering" ? "selected" : "" ?>>Engineering</option>
-                        <option value="Computer Science" <?= ($_POST["category"] ?? "") === "Computer Science" ? "selected" : "" ?>>Computer Science</option>
-                        <option value="Business" <?= ($_POST["category"] ?? "") === "Business" ? "selected" : "" ?>>Business</option>
-                        <option value="Education" <?= ($_POST["category"] ?? "") === "Education" ? "selected" : "" ?>>Education</option>
+                        <option value="Information Technology" <?= ($capstone["category"] ?? "") === "Information Technology" ? "selected" : "" ?>>Information Technology</option>
+                        <option value="Engineering" <?= ($capstone["category"] ?? "") === "Engineering" ? "selected" : "" ?>>Engineering</option>
+                        <option value="Computer Science" <?= ($capstone["category"] ?? "") === "Computer Science" ? "selected" : "" ?>>Computer Science</option>
+                        <option value="Business" <?= ($capstone["category"] ?? "") === "Business" ? "selected" : "" ?>>Business</option>
+                        <option value="Education" <?= ($capstone["category"] ?? "") === "Education" ? "selected" : "" ?>>Education</option>
                     </select>
                     <small class=" text-red-400 text-sm"><?= $errors['category'] ?? '' ?></small>
                 </div>
@@ -76,7 +77,7 @@
                 <div>
                     <label class="block text-sm mb-1 text-gray-700">Abstract</label>
                     <textarea name="abstract" rows="4"
-                        class="w-full px-4 py-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"><?= $_POST["abstract"] ?? "" ?></textarea>
+                        class="w-full px-4 py-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"><?= $capstone["abstract"] ?? "" ?></textarea>
                     <small class="text-red-400 text-sm"><?= $errors['abstract'] ?? '' ?></small>
                 </div>
 
@@ -93,7 +94,7 @@
                     </div>
 
                     <!-- File Name Preview -->
-                    <p id="fileName" class="mt-3 text-sm text-gray-500 bg-blue-50 border border-blue-70 rounded-md p-2"><?= $_FILES['document']['name'] ?? '' ?></p>
+                    <p id="fileName" class="mt-3 text-sm text-gray-500 bg-blue-50 border border-blue-70 rounded-md p-2"><?= $capstone['document_path'] ?? '' ?></p>
                     <small class="text-red-400 text-sm"><?= $errors['file'] ?? '' ?></small>
                 </div>
 
@@ -101,7 +102,7 @@
                 <div class="mt-6 flex justify-between items-center">
 
                     <!-- Back -->
-                    <a href="/capstone"
+                    <a href="/capstone/my_projects"
                         class="text-gray-500 hover:text-blue-700 transition">
                         &larr; Back
                     </a>
@@ -109,7 +110,7 @@
                     <!-- Submit -->
                     <button type="submit"
                         class="bg-blue-900 hover:bg-blue-800 text-white px-6 py-2 rounded-lg font-medium transition">
-                        Upload
+                        Update
                     </button>
 
                 </div>

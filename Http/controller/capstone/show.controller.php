@@ -9,6 +9,9 @@ $id = $_GET['id'];
 
 $capstone = $connection->query("SELECT * FROM projects WHERE id=?", [$id])->fetch();
 
+if (! $capstone) {
+    abort(404);
+}
 
 view('capstone/show.view.php', [
     'heading' => 'Capstone',

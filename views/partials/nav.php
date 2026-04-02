@@ -17,7 +17,7 @@
                     <?php if ($_SESSION['id'] ?? false) : ?>
                         <a href="/dashboard" class="<?= parse_url($_SERVER['REQUEST_URI'])['path'] === '/dashboard' ? 'bg-blue-900 text-white' : 'text-gray-600 hover:bg-blue-50 hover:text-blue-700' ?> px-3 py-2 rounded-md text-sm">Dashboard</a>
                     <?php endif; ?>
-                    <a href="/capstone" class="<?= parse_url($_SERVER['REQUEST_URI'])['path'] === '/capstone' || parse_url($_SERVER['REQUEST_URI'])['path'] === '/capstone/show' ? 'bg-blue-900 text-white' : 'text-gray-600 hover:bg-blue-50 hover:text-blue-700' ?> px-3 py-2 rounded-md text-sm">Capstone</a>
+                    <a href="/capstone" class="<?= parse_url($_SERVER['REQUEST_URI'])['path'] === '/capstone' || parse_url($_SERVER['REQUEST_URI'])['path'] === '/capstone/show' || parse_url($_SERVER['REQUEST_URI'])['path'] === '/capstone/create' || parse_url($_SERVER['REQUEST_URI'])['path'] === '/capstone/my_projects' || parse_url($_SERVER['REQUEST_URI'])['path'] === '/capstone/edit' ? 'bg-blue-900 text-white' : 'text-gray-600 hover:bg-blue-50 hover:text-blue-700' ?> px-3 py-2 rounded-md text-sm">Capstone</a>
 
                     <a href="/about" class="<?= parse_url($_SERVER['REQUEST_URI'])['path'] === '/about' ? 'bg-blue-900 text-white' : 'text-gray-600 hover:bg-blue-50 hover:text-blue-700' ?> px-3 py-2 rounded-md text-sm">About us</a>
 

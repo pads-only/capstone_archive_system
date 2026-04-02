@@ -11,5 +11,6 @@ $capstones = $connection->query("select * from projects order by id desc limit 3
 
 view('dashboard.view.php', [
     'heading' => 'Dashoard',
-    'capstones' => $capstones
+    'capstones' => $capstones,
+    'breadcrumbs' => 'Dashboard'
 ]);

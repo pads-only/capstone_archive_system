@@ -36,3 +36,13 @@ function view($path, $attributes = [])
 
     require base_path("views/{$path}");
 }
+
+
+function abort($status)
+{
+    http_response_code($status);
+
+    view("http_codes/{$status}.php");
+
+    die();
+}
