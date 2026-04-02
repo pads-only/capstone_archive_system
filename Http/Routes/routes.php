@@ -24,3 +24,4 @@ $router->get('/capstone/my_projects', 'capstone/my.capstone.controller.php')->on
 
 $router->get('/capstone/edit', 'capstone/edit.controller.php')->only('auth');
 $router->patch('/capstone/edit', 'capstone/update.controller.php')->only('auth');
+$router->delete('/capstone/destroy', 'capstone/destroy.controller.php')->only('auth');

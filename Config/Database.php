@@ -39,4 +39,9 @@ class Database
     {
         return $this->connection->lastInsertId();
     }
+
+    public function getConnection()
+    {
+        return $this->connection;
+    }
 }

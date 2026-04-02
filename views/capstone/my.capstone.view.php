@@ -64,11 +64,14 @@
                                                 class="text-sm px-3 py-1 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-100 transition">
                                                 Edit
                                             </a>
-
-                                            <button
-                                                class="text-sm px-3 py-1 rounded-md bg-red-600 text-white hover:bg-red-500 transition">
-                                                Delete
-                                            </button>
+                                            <form action="/capstone/destroy" method="POST">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="id" value="<?= $capstone['id'] ?>">
+                                                <button
+                                                    class="text-sm px-3 py-1 rounded-md bg-red-600 text-white hover:bg-red-500 transition">
+                                                    Delete
+                                                </button>
+                                            </form>
 
                                         </div>
                                     </td>

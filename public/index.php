@@ -21,6 +21,7 @@ $router = new Http\Routes\Router();
 require base_path("Http/Routes/routes.php");
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+
 $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
-$router->route($uri, $method);
+$router->route($uri, $method); // /capstone/destroy 10

@@ -6,7 +6,7 @@ use Middleware\Middleware;
 
 class Router
 {
-    public $routes = [];
+    private $routes = [];
 
     public function add($uri, $controller, $method)
     {
