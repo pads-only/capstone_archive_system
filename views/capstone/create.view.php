@@ -60,11 +60,9 @@
                         class="w-full px-4 py-2 rounded-lg bg-white border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
 
                         <option value="">Select a category</option>
-                        <option value="Information Technology" <?= ($_POST["category"] ?? "") === "Information Technology" ? "selected" : "" ?>>Information Technology</option>
-                        <option value="Engineering" <?= ($_POST["category"] ?? "") === "Engineering" ? "selected" : "" ?>>Engineering</option>
-                        <option value="Computer Science" <?= ($_POST["category"] ?? "") === "Computer Science" ? "selected" : "" ?>>Computer Science</option>
-                        <option value="Business" <?= ($_POST["category"] ?? "") === "Business" ? "selected" : "" ?>>Business</option>
-                        <option value="Education" <?= ($_POST["category"] ?? "") === "Education" ? "selected" : "" ?>>Education</option>
+                        <?php foreach ($categories as $category) : ?>
+                            <option value="<?= $category['id'] ?>" <?= ($_POST["category"] ?? "") === "{$category['id']}" ? "selected" : "" ?>><?= $category['name'] ?></option>
+                        <?php endforeach; ?>
                     </select>
                     <small class=" text-red-400 text-sm"><?= $errors['category'] ?? '' ?></small>
                 </div>

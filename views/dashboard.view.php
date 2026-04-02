@@ -55,8 +55,11 @@
 
                     <!-- BOTTOM (ALWAYS ALIGNED) -->
                     <div class="mt-auto pt-4 flex items-center justify-between">
+
                         <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
-                            <?= $capstone['category'] ?>
+                            <?php foreach ($categories as $category) : ?>
+                                <?= $category['id'] === $capstone['category_id'] ? $category['name'] : "" ?>
+                            <?php endforeach; ?>
                         </span>
 
                         <a href="/capstone/show?id=<?= $capstone['id'] ?>"

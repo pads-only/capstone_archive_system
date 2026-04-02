@@ -1,7 +1,7 @@
 <header class="bg-white border-b border-gray-200">
 
 
-    <div class="max-w-7xl mx-auto px-8 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <div class="max-w-7xl mx-auto space-y-4 px-4 lg:px-8 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between lg:gap-4">
 
         <div>
             <h1 class="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800">

@@ -2,9 +2,9 @@
     <ol class="flex items-center space-x-2">
 
         <li>
-            <a href="/capstone" class="hover:text-blue-700 transition">
+            <button onclick="history.back()" class=" hover:text-blue-700 transition">
                 Capstone
-            </a>
+            </button>
         </li>
 
         <li class="text-gray-400">/</li>

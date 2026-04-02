@@ -9,6 +9,9 @@ $id = $_GET['id'];
 
 $capstone = $connection->query("SELECT * FROM projects WHERE id=?", [$id])->fetch();
 
+$category = $connection->query("SELECT name FROM categories WHERE id =:id", [$capstone['category_id']])->fetch();
+
+
 if (! $capstone) {
     abort(404);
 }
@@ -16,5 +19,6 @@ if (! $capstone) {
 view('capstone/show.view.php', [
     'heading' => 'Capstone',
     'capstone' => $capstone,
+    'category_name' => $category['name'],
     'breadcrumbs' => $capstone['title']
 ]);

@@ -3,11 +3,7 @@ $pdf = $_GET['pdf'];
 $file = 'uploads/' . $pdf;
 
 if (! file_exists($file)) {
-    http_response_code(404);
-
-    view("404.php");
-
-    die();
+    abort(404);
 }
 
 header('Content-Type: application/pdf');

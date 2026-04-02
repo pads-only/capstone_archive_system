@@ -1,5 +1,7 @@
 <?php
 
+// dd($_POST);
+
 use Config\Database;
 use Core\Validator;
 use Core\App;
@@ -22,10 +24,13 @@ $abstract = $_POST['abstract'];
 
 $validateCapstone = new CapstoneForm();
 
+$categories = $connection->query("SELECT * FROM categories")->fetchAll();
+
 if (! $validateCapstone->handleCapstoneForm($title, $author, $adviser, $year_published, $category, $abstract)) {
     return view('capstone/create.view.php', [
         'heading' => 'Capstone',
         'errors' => $validateCapstone->getError(),
+        'categories' => $categories
     ]);
 }
 
@@ -36,7 +41,8 @@ if (! $fileHandler->validateFile($_FILES['document'])) {
         'capstone/create.view.php',
         [
             'heading' => "Capstone",
-            'errors' => $fileHandler->getError()
+            'errors' => $fileHandler->getError(),
+            'categories' => $categories
         ]
     );
 }
@@ -49,7 +55,8 @@ if (! move_uploaded_file($_FILES['document']['tmp_name'], $target_dir . $_FILES[
         'capstone/create.view.php',
         [
             'heading' => "Capstone",
-            'errors' => 'Something went wrong'
+            'errors' => 'Something went wrong',
+            'categories' => $categories
         ]
     );
 }

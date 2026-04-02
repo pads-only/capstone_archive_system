@@ -23,7 +23,7 @@ class CapstoneForm
         if (! Validator::validateString($year_published, 4, 11)) {
             $this->errors['year_published'] = "Year published should have at least 4 character";
         }
-        if (! Validator::validateString($category, 3, 50)) {
+        if (! Validator::validateString($category, 1, 11)) {
             $this->errors['category'] = "Category should have at least 3 character and not greater than 50";
         }
         if (! Validator::validateString($abstract, 200, 500)) {

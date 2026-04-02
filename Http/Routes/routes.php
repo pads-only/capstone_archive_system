@@ -20,6 +20,8 @@ $router->get('/capstone/show', 'capstone/show.controller.php');
 $router->get('/capstone/create', 'capstone/create.controller.php')->only('auth');
 $router->post('/capstone/create', 'capstone/store.controller.php')->only('auth');
 
+$router->get('/capstone/search', 'capstone/search.controller.php')->only('auth');
+
 $router->get('/capstone/my_projects', 'capstone/my.capstone.controller.php')->only('auth');
 
 $router->get('/capstone/edit', 'capstone/edit.controller.php')->only('auth');

@@ -7,10 +7,14 @@ $connection = App::resolve(Database::class);
 
 $current_user = $_SESSION['id'];
 
-$capstones = $connection->query("select * from projects order by id desc limit 3 ")->fetchAll();
+$capstones = $connection->query("SELECT * FROM projects ORDER BY id DESC LIMIT 3 ")->fetchAll();
+
+$categories  = $connection->query("SELECT * FROM categories")->fetchAll();
+
 
 view('dashboard.view.php', [
     'heading' => 'Dashoard',
     'capstones' => $capstones,
-    'breadcrumbs' => 'Dashboard'
+    'breadcrumbs' => 'Dashboard',
+    'categories' => $categories
 ]);

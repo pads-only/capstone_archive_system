@@ -26,7 +26,7 @@
 
                 <div>
                     <p class="text-sm text-gray-500">Category</p>
-                    <p class="font-medium"><?= $capstone['category'] ?></p>
+                    <p class="font-medium"><?= $category_name ?></p>
                 </div>
 
                 <div>
