@@ -46,6 +46,7 @@ class Router
         return $this;
     }
 
+
     protected function abort($status = 404)
     {
         http_response_code($status);

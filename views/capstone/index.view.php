@@ -14,23 +14,25 @@
                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none" />
             <button class="bg-blue-900 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-800 transition">Search</button>
         </form>
-        <select class="px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500">
+        <select id="category" class="px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500" name="category">
             <option>All Categories</option>
             <?php foreach ($categories as $category) : ?>
                 <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
             <?php endforeach; ?>
         </select>
 
-        <select class="px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500">
+
+        <select id="year" class="px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500">
             <option>All Years</option>
             <option>2025</option>
             <option>2024</option>
         </select>
+
     </div>
     <?php if (! count($capstones) > 0): ?>
         <p class="text-gray-500 mb-4 text-xl">No result found with '<?= $_GET['keywords'] ?>'</p>
     <?php endif; ?>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div id="card" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- CARD -->
         <?php foreach ($capstones as $capstone) : ?>
             <div class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col">

@@ -37,10 +37,11 @@ if ($user) {
 $hashed_password = Validator::hashedPassword($password);
 
 //store  new user to database
-$connection->query("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)", [$name, $email, $hashed_password]);
+$connection->query("INSERT INTO users (name, email, password, role_id) VALUES (:name, :email, :password, :role_id)", [$name, $email, $hashed_password, 2]);
 
 $_SESSION['email'] = $email;
 $_SESSION['name'] = $name;
+$_SESSION['user_role'] = 2;
 $_SESSION['id'] = $connection->lastInsertedId();
 
 header('location: /dashboard');

@@ -2,11 +2,11 @@
 
 namespace Middleware;
 
-class Auth
+class User
 {
     public function handle()
     {
-        if (! $_SESSION['id'] ?? false) {
+        if (($_SESSION['user_role'] ?? false) !== 2) {
             header('location: /login');
             exit();
         }

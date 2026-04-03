@@ -29,10 +29,16 @@ if ($user) {
 
         $_SESSION['id'] = $user['id'];
         $_SESSION['name'] = $user['name'];
+        $_SESSION['user_role'] = $user['role_id'];
         $_SESSION['email'] = $user['email'];
 
-        header("location: /dashboard");
-        exit();
+        if ($user['role_id'] === 1) {
+            header("location: /admin");
+            exit();
+        } else if ($user['role_id'] === 2) {
+            header("location: /dashboard");
+            exit();
+        }
     }
 }
 
